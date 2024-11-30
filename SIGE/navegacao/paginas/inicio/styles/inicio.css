@@ -12,9 +12,8 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 100px 20px; /* Ajuste do padding para responsividade */
+    padding: 100px 20px; 
     margin: 0;
-    /* Removido height fixa */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,7 +40,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Removido height fixa */
     text-align: center;
     padding: 20px;
 }
@@ -108,7 +106,6 @@ body {
 /* Seção Programas */
 .programas-section {
     padding: 40px 20px;
-    /* Removido height fixa */
     text-align: center;
 }
 

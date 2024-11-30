@@ -1,6 +1,6 @@
 
 async function conexaoWebGet(endpoint) {
-    const url = `https://api.curtiturismo.com.br:9090/${endpoint}`;  // Verifique se esta URL está correta
+    const url = `https://api.sige.com.br:9090/${endpoint}`;  // Verifique se esta URL está correta
 
     console.log("Iniciando requisição para URL:", url);  // Log da URL
 
@@ -45,7 +45,7 @@ async function conexaoWebGet(endpoint) {
 }
 
 async function conexaoWebPost(corpo, endpoint) {
-    const url = `https://api.curtiturismo.com.br:9090/${endpoint}`; // Nota: usando https
+    const url = `https://api.sige.com.br:9090/${endpoint}`; // Nota: usando https
 
     const mediaType = 'application/json; charset=utf-8';
     const options = {
@@ -94,7 +94,7 @@ async function fazerLogin(email, password) {
         if (response.message === "Login bem-sucedido") {
             
             return true;
-            //window.location.href = '/Home/Index'; // Redireciona para a página inicial protegida
+            window.location.href = '/Home/Index'; // Redireciona para a página inicial protegida
         } else {
             console.warn("Falha no login:", response.message);
             // Exiba uma mensagem de erro ao usuário
@@ -152,9 +152,9 @@ window.onload = verificarSessao;
 
 
 
-async function autenticarCliente(token, cpfLimpo) {
+async function autenticarAluno(token, cpfLimpo) {
     try {
-        const endpoint = `Mensagem/Cliente/Autenticar/${token}`;
+        const endpoint = `Mensagem/Aluno/Autenticar/${token}`;
 
         const resultado = await fazerLogin(cpfLimpo, "senha123");
 
@@ -165,20 +165,20 @@ async function autenticarCliente(token, cpfLimpo) {
             return response && response.includes("sucesso"); // Verifica se contém "sucesso" ou outra indicação de sucesso
         }
     } catch (error) {
-        console.error("Erro ao autenticar cliente:", error);
+        console.error("Erro ao autenticar Aluno:", error);
         return false;
     }
 }
 
 
 
-// Função para buscar cliente
-async function buscarCliente(CPF_cliente) {
-    const cpfLimpo = CPF_cliente.toString().replace(/[.-]/g, '');
+// Função para buscar Aluno
+async function buscarAluno(CPF_Aluno) {
+    const cpfLimpo = CPF_Aluno.toString().replace(/[.-]/g, '');
 
     try {
         // Constrói o endpoint da API usando o CPF, login e senha
-        const endpoint = `Site/Buscar/cliente/${cpfLimpo}`;
+        const endpoint = `Site/Buscar/Aluno/${cpfLimpo}`;
 
         //TEMPORARIO: Atualizar para o login real
         const resultado = await fazerLogin(cpfLimpo, "senha123");
@@ -190,7 +190,7 @@ async function buscarCliente(CPF_cliente) {
     
             console.log("Resposta recebida:", response);
             
-            // Verifica se a resposta foi recebida e contém os dados do cliente
+            // Verifica se a resposta foi recebida e contém os dados do Aluno
             if (response && response.cadastro != null) {
     
                 return {
@@ -237,21 +237,21 @@ async function buscarCliente(CPF_cliente) {
         
     } catch (error) {
         // Loga o erro e lança a exceção para ser tratada em outro lugar
-        console.error("Erro ao buscar o cliente:", error);
+        console.error("Erro ao buscar o Aluno:", error);
         throw error;
     }
 }
 
 
 
-// Função para cadastrar cliente
-async function cadastrarCliente(Cliente, Cidade) {
+// Função para cadastrar Aluno
+async function cadastrarAluno(Aluno, Cidade) {
     try {
         const requestBody = {
-            ...Cliente
+            ...Aluno
         };
 
-        const endpoint = `Cliente/Cadastrar/Informacoes/${Cidade}`;
+        const endpoint = `Aluno/Cadastrar/Informacoes/${Cidade}`;
 
 
         const response = await conexaoWebPost(requestBody, endpoint);
@@ -259,23 +259,23 @@ async function cadastrarCliente(Cliente, Cidade) {
         if (response === true) {
             return true; 
         } else {
-            console.warn("Erro ao cadastrar cliente. Resposta recebida:", response);
+            console.warn("Erro ao cadastrar Aluno. Resposta recebida:", response);
             return false; 
         }
     } catch (error) {
-        console.error("Erro ao cadastrar cliente:", error);
+        console.error("Erro ao cadastrar Aluno:", error);
         return false; 
     }
 }
 
-// Função para cadastrar endereço do cliente
-async function cadastrarCliente_Endereco(Endereco) {
+// Função para cadastrar endereço do Aluno
+async function cadastrarAluno_Endereco(Endereco) {
     try {
         const requestBody = {
             ...Endereco
         };
 
-        const endpoint = `Cliente/Cadastrar/Endereco`;
+        const endpoint = `Aluno/Cadastrar/Endereco`;
 
         const response = await conexaoWebPost(requestBody, endpoint);
 
@@ -288,7 +288,7 @@ async function cadastrarCliente_Endereco(Endereco) {
             return false;
         }
     } catch (error) {
-        console.error("Erro ao cadastrar cliente:", error);
+        console.error("Erro ao cadastrar Aluno:", error);
         return false;
     }
 }
@@ -320,15 +320,15 @@ function readAsBuffer(file) {
 }
 
 
-// Função para cadastrar identidade do cliente
-async function cadastrarCliente_Identidade(clienteIdentidade) {
+// Função para cadastrar identidade do Aluno
+async function cadastrarAluno_Identidade(AlunoIdentidade) {
     try {
         
         const requestBody = {
-            ...clienteIdentidade
+            ...AlunoIdentidade
         };
 
-        const endpoint = `Cliente/Cadastrar/Identidade`;
+        const endpoint = `Aluno/Cadastrar/Identidade`;
 
         const response = await conexaoWebPost(requestBody, endpoint);
 
@@ -341,19 +341,19 @@ async function cadastrarCliente_Identidade(clienteIdentidade) {
             return false;
         }
     } catch (error) {
-        console.error("Erro ao cadastrar cliente:", error);
+        console.error("Erro ao cadastrar Aluno:", error);
         return false;
     }
 }
 
-// Função para cadastrar contato do cliente
-async function cadastrarCliente_contato(Cliente) {
+// Função para cadastrar contato do Aluno
+async function cadastrarAluno_contato(Aluno) {
     try {
         const requestBody = {
-            ...Cliente
+            ...Aluno
         };
 
-        const endpoint = `Cliente/Cadastrar/Contato`;
+        const endpoint = `Aluno/Cadastrar/Contato`;
 
         const response = await conexaoWebPost(requestBody, endpoint);
 
@@ -366,7 +366,7 @@ async function cadastrarCliente_contato(Cliente) {
             return false;
         }
     } catch (error) {
-        console.error("Erro ao cadastrar cliente:", error);
+        console.error("Erro ao cadastrar Aluno:", error);
         return false;
     }
 }
