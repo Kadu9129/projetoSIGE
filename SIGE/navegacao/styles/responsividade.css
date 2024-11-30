@@ -1,0 +1,32 @@
+
+@media screen and (max-width: 1200px) {
+    /* Exibe o Navbar Inferior em telas menores */
+    #navbarContainer {
+      display: flex;
+    }
+  
+    /* Esconde o Menu Superior em telas menores */
+    .menu .menu_lista {
+      display: none;
+    }
+  
+
+    /* Exibe o botão "Entrar" em telas menores */
+    .nav-menuSuperior-entrar- {
+      display: flex;
+      margin-left: auto;
+      margin-right: 20px;
+      align-items: center;
+      background-color: #ff8945;
+      border-radius: 20%;
+      color: #ffffff;
+      padding: 10px 20px;
+    }
+  
+    /* Esconde o link "Entrar" do Menu Superior */
+    .nav-menuSuperior-entrar {
+      display: none;
+    }
+
+}
+  

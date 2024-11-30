@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGE - Sistema Integrado de Gestão Educacional</title>
+
+
+    <!-- Estilos de navegação -->
+    <link rel="stylesheet" href="../Navegacao/styles/rodape.css">
+    <link rel="stylesheet" href="../Navegacao/styles/navegacaoMenu.css">
+    <link rel="stylesheet" href="../Navegacao/styles/responsividade.css">
+    <link rel="stylesheet" href="../Navegacao/styles/centralizarExibicao.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="navbarContainer">
+        <div id="navbar">
+            <div id="menuWrapper">
+                <!-- Menu Items -->
+                <div class="menu1-fundo">
+                    <div id="pagina1" class="menuElement" data-fundo="menu1-fundo">
+                        <img src="../galeria/icones/Inicio.png" alt="Início" class="icone-personalizado">
+                    </div>
+                </div>
+                <div class="menu2-fundo">
+                    <div id="pagina2" class="menuElement" data-fundo="menu2-fundo">
+                        <img src="../galeria/icones/RedeSocial.png" alt="Rede Social" class="icone-personalizado">
+                    </div>
+                </div>
+                <div class="menu3-fundo">
+                    <div id="pagina3" class="menuElement" data-fundo="menu3-fundo">
+                        <img src="../galeria/icones/Perfil.png" alt="Perfil" class="icone-personalizado">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Cabeçalho com Logo e Menu -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../galeria/icones/Logo.png" alt="SIGE" onclick="selecionarPagina('Inicio');">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="selecionarPagina('Inicio');">Início</a></li>
+                <li><a href="#" onclick="selecionarPagina('Sobre');">Sobre</a></li>
+                <li><a href="#" onclick="selecionarPagina('Programas');">Programas</a></li>
+                <li><a href="#" onclick="selecionarPagina('Contatos');">Contatos</a></li>
+                <li><a href="#" class="entrar" onclick="selecionarPagina('Entrar');">Entrar</a></li>
+            </ul>
+            <div class="mobile-menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="conteudo">
+        <div id="centroExibicao" class="centroExibicao"></div>
+    </div>
+
+<!-- Rodapé da Página -->
+<footer class="footer">
+    <div class="footer-content">
+        <!-- Seção Sobre -->
+        <div class="footer-column">
+            <h4>Sobre o <img class="logo" src="../galeria/icones/Logo.png" alt="Logo da SIGE"></h4>
+            <p>
+                Fundada em 2023, a SIGE teve sua origem em Saquarema, o primeiro município do Brasil a adotar um sistema integrado altamente modularizado e eficiente. Nosso objetivo principal é a contínua expansão e otimização desse sistema, garantindo segurança e velocidade.
+            </p>
+            <a href="#" class="footer-link">Saiba mais <i class="fas fa-info-circle"></i></a>
+        </div>
+
+        <!-- Seção Links -->
+        <div class="footer-column">
+            <h4>Principais Links</h4>
+            <ul>
+                <li><a href="#" class="footer-link">Módulo de Finanças</a></li>
+                <li><a href="#" class="footer-link">Sistema de Logística Integrada</a></li>
+                <li><a href="#" class="footer-link">Plataforma de Projetos</a></li>
+            </ul>
+        </div>
+
+        <!-- Seção E-books -->
+        <div class="footer-column">
+            <h4>Nossos E-books e Área do Cliente</h4>
+            <ul>
+                <li><a href="#" class="footer-link">Manual de Utilização</a></li>
+                <li><a href="#" class="footer-link">Guias de Configuração</a></li>
+                <li><a href="#" class="footer-link">FAQ - Perguntas Frequentes</a></li>
+                <li><a href="#" class="footer-link">Login</a></li>
+                <li><a href="#" class="footer-link">Recuperar Senha</a></li>
+            </ul>
+        </div>
+
+        <!-- Seção Contatos -->
+        <div class="footer-column">
+            <h4>Contatos & Endereço</h4>
+            <p><img src="../galeria/icones/telefone.png" alt="Telefone"> Comercial: +55 (21) 00000-0000</p>
+            <p><img src="../galeria/icones/email.png" alt="Email"> Suporte: suporte@sige.com.br</p>
+            <p>Rua da Tecnologia, 1234 - Sala 101<br>Saquarema/RJ | 28990-000</p>
+            <a href="#" class="footer-link">Trabalhe Conosco</a>
+        </div>
+    </div>
+
+    <div class="footer-info text-center">
+        <p>© 2023 SIGE - Sistemas Integrados de Gestão Eficiente. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="../Navegacao/script/navecacao.js"></script>
+</body>
+</html>

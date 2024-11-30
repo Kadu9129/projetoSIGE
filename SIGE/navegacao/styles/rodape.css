@@ -1,0 +1,107 @@
+/* Estilos Gerais do Rodapé */
+.footer {
+    background-color: #333333;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    padding: 60px 20px 20px;
+}
+
+.footer img{
+    width: 200px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #cccccc;
+    margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column ul {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: rgba(0, 102, 102, 1);
+    ;
+}
+
+.footer-column .contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-column .contact img {
+    width: 20px;
+}
+
+.footer-column .socials a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-column .socials img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.footer-column .socials img:hover {
+    transform: scale(1.1);
+}
+
+.footer-info {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+}

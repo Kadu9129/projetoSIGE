@@ -1,0 +1,52 @@
+
+
+
+@media screen and (max-width: 815px) {
+    .launches-block{
+        display: none;
+    }
+
+    .slider-launches,
+    .packages-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .packages-section[type="sessao1"]{
+         flex-direction:column-reverse
+    }
+
+    
+    .testimonials-carousel {
+        position: relative;
+        height: 150px;
+    }
+
+    .slider-container,
+    .launches-block,
+    .testimonials-box,
+    .carousel-container,
+    .additional-section {
+        width: 100%;
+        margin: 0;
+    }
+
+    .launches-block {
+        margin-top: 20px;
+        padding-left: 0;
+    }
+
+    .testimonials-box,
+    .additional-section {
+        margin-top: 20px;
+    }
+
+    .carousel-container {
+        margin-top: 20px;
+    }
+
+    .carousel-btn {
+        font-size: 24px;
+        padding: 8px;
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGE - Sistema Integrado de Gestão Educacional</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Seção Principal com Atalhos -->
+    <section id="inicio" class="main-section">
+        <h2>BEM-VINDO AO SIGE</h2>
+        <p>
+            Acesse rapidamente as principais funcionalidades do sistema.
+        </p>
+        <div class="atalhos-container">
+            <div class="atalho" onclick="abrirFuncao('matriculas')">
+                <img src="/galeria/icones/matriculas.png" alt="Matrículas">
+                <p>Matrículas</p>
+            </div>
+            <div class="atalho" onclick="abrirFuncao('frequencia')">
+                <img src="/galeria/icones/frequencia.png" alt="Frequência">
+                <p>Frequência</p>
+            </div>
+            <div class="atalho" onclick="abrirFuncao('notas')">
+                <img src="/galeria/icones/notas.png" alt="Notas">
+                <p>Lançar Notas</p>
+            </div>
+            <div class="atalho" onclick="abrirFuncao('relatorios')">
+                <img src="/galeria/icones/relatorios.png" alt="Relatórios">
+                <p>Relatórios</p>
+            </div>
+            <div class="atalho" onclick="abrirFuncao('comunicados')">
+                <img src="/galeria/icones/comunicados.png" alt="Comunicados">
+                <p>Comunicados</p>
+            </div>
+            <div class="atalho" onclick="abrirFuncao('calendario')">
+                <img src="/galeria/icones/calendario.png" alt="Calendário">
+                <p>Calendário Escolar</p>
+            </div>
+            <div class="atalho" onclick="abrirFuncao('biblioteca')">
+                <img src="/galeria/icones/biblioteca.png" alt="Biblioteca">
+                <p>Biblioteca</p>
+            </div>
+            <div class="atalho" onclick="abrirFuncao('suporte')">
+                <img src="/galeria/icones/suporte.png" alt="Suporte">
+                <p>Suporte Técnico</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outras Seções (mantidas ou ajustadas conforme necessário) -->
+    <!-- Seção Sobre -->
+    <section id="sobre" class="sobre-section">
+        <div class="sobre-text">
+            <p>
+                O SIGE é uma plataforma que integra diversas funcionalidades para facilitar a gestão educacional, desde o acompanhamento de alunos até a administração de cursos e turmas.
+            </p>
+            <p>
+                Estamos comprometidos em oferecer soluções eficientes para otimizar o processo educacional e facilitar a vida escolar.
+            </p>
+            <button class="btn-entre-contato">ENTRE EM CONTATO</button>
+        </div>
+    </section>
+
+    <!-- Seção Programas (pode ser mantida ou ajustada) -->
+    <section id="programas" class="programas-section">
+        <h2>PROGRAMAS</h2>
+        <div class="programas-container">
+            <div class="item_programas">
+                <img src="/galeria/icones/futuro.png" alt="Conexão">
+                <p>Conexão Futuro</p>
+            </div>
+            <div class="item_programas">
+                <img src="/galeria/icones/universitario.png" alt="Universitário">
+                <p>Bolsa Universitária</p>
+            </div>
+            <div class="item_programas">
+                <img src="/galeria/icones/moeda.png" alt="Social">
+                <p>Inclusão Social</p>
+            </div>
+            <div class="item_programas">
+                <img src="/galeria/icones/escola.png" alt="Escolas">
+                <p>Rede de Escolas</p>
+            </div>
+            <div class="item_programas">
+                <img src="/galeria/icones/creche.png" alt="Creche">
+                <p>Creches Municipais</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function abrirFuncao(funcao) {
+            
+            alert('Abrindo ' + funcao);
+          
+        }
+    </script>
+
+</body>
+</html>

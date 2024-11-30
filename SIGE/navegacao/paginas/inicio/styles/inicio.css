@@ -1,0 +1,287 @@
+/* Estilos gerais */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #009999;
+}
+
+/* Seção Principal */
+.main-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px; /* Ajuste do padding para responsividade */
+    margin: 0;
+    /* Removido height fixa */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-section h2 {
+    color: #ffffff;
+    font-size: 30pt;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.main-section p {
+    color: #fcfbfb;
+    font-size: 20pt;
+    padding: 10px;
+    text-align: center;
+    margin: 50px 0 0 0;
+}
+
+/* Seção Sobre */
+.sobre-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Removido height fixa */
+    text-align: center;
+    padding: 20px;
+}
+
+.sobre-text {
+    max-width: 800px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.btn-entre-contato {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.btn-entre-contato:hover {
+    background-color: #7FFFD4;
+}
+
+/* Estilos para a seção de atalhos */
+.atalhos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.atalho {
+    background-color: #006666;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.atalho img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.atalho p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.atalho:hover {
+    transform: scale(1.05);
+    background-color: #004d4d;
+}
+
+/* Seção Programas */
+.programas-section {
+    padding: 40px 20px;
+    /* Removido height fixa */
+    text-align: center;
+}
+
+.programas-section h2 {
+    color: #ffffff;
+    font-size: 30pt;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+}
+
+.programas-container {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que os itens quebrem linha */
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.programas-container::-webkit-scrollbar {
+    width: 0;
+}
+
+.item_programas {
+    min-width: 300px;
+    max-width: 300px;
+    margin: 15px; /* Ajuste de margem para espaçamento uniforme */
+    text-align: center;
+    flex: 0 0 auto;
+    transition: transform 0.3s;
+}
+
+.item_programas img {
+    width: 200px;
+    height: 200px;
+    border: 10px solid rgba(17, 153, 153, 0.5);
+    border-radius: 50%;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.item_programas p {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.item_programas:hover img {
+    transform: scale(1.1);
+    border-color: rgba(17, 153, 35, 1);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .main-section h2 {
+        font-size: 26pt;
+    }
+
+    .main-section p {
+        font-size: 18pt;
+    }
+
+    .programas-section h2 {
+        font-size: 26pt;
+    }
+
+    .item_programas {
+        min-width: 250px;
+        max-width: 250px;
+    }
+
+    .item_programas img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .item_programas p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-section {
+        padding: 80px 20px;
+    }
+
+    .main-section h2 {
+        font-size: 24pt;
+    }
+
+    .main-section p {
+        font-size: 16pt;
+    }
+
+    .atalho {
+        width: 120px;
+        padding: 15px;
+    }
+
+    .atalho img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .atalho p {
+        font-size: 14px;
+    }
+
+    .sobre-text {
+        font-size: 16px;
+    }
+
+    .btn-entre-contato {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .programas-section h2 {
+        font-size: 24pt;
+    }
+
+    .item_programas {
+        min-width: 200px;
+        max-width: 200px;
+        margin: 10px;
+    }
+
+    .item_programas img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .item_programas p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-section h2 {
+        font-size: 20pt;
+    }
+
+    .main-section p {
+        font-size: 14pt;
+    }
+
+    .atalho {
+        width: 100px;
+        padding: 10px;
+    }
+
+    .atalho img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .atalho p {
+        font-size: 12px;
+    }
+
+    .sobre-text {
+        font-size: 14px;
+    }
+
+    .item_programas {
+        min-width: 150px;
+        max-width: 150px;
+        margin: 10px;
+    }
+
+    .item_programas img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .item_programas p {
+        font-size: 12px;
+    }
+}

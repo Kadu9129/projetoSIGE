@@ -1,0 +1,249 @@
+/* Importando as fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Montserrat:wght@700;800&family=Poppins:wght@700;800&display=swap');
+
+/* Paleta de cores */
+:root {
+    --cor-principal: #eb5200; /* Laranja */
+    --cor-secundaria: #ffc60b; /* Amarelo */
+    --cor-branca: #ffffff;    /* Branco */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente */
+    min-height: 85vh;        /* Altura mínima de 100% da viewport */
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cor-principal);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cor-principal);
+}
+
+/* Wave Experiment */
+.wave-container {
+    width: 100%;
+    height: 100%;
+    min-height: 10vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    z-index: -1;
+}
+
+.wave {
+    opacity: 1;
+    position: absolute;
+    top: -286vw;
+    left: -85vw;
+    background: linear-gradient(to top, #eb5200, #18dfad00,#eb5200); /* Gradiente vertical para o fundo-menu */
+    width: 300vw;
+    height: 300vw;
+    border-radius: 48%;
+    -webkit-animation: drift 10000ms infinite linear;
+    animation: drift 10000ms infinite linear;
+    will-change: transform;
+}
+
+.wave.-two {
+    animation: drift 11000ms infinite linear;
+    opacity: 1;
+    background: #ffffff;
+    top: -286vw;
+    left: -90vw;
+}
+
+.wave.-three {
+    animation: drift 6000ms infinite linear;
+    opacity: 1;
+    background: linear-gradient(to top, #ebc107, #ebc10700, #eb5200); /* Gradiente vertical para o fundo-menu */
+    top: -283vw;
+    left: -95vw;
+    z-index: -2;
+}
+
+@keyframes drift {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* Estilos para o container da logo */
+.logo-container {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-container img {
+    max-width: 400px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+}
+
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    margin: auto;  /* Centraliza horizontal e verticalmente dentro do flex container */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid var(--cor-principal);
+    position: relative;
+    z-index: 1;
+}
+
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; /* EXTRA BOLD */
+    color: var(--cor-principal);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* BOLD */
+    color: var(--cor-principal);
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700; /* Destaque em informações */
+    font-size: 1.3em;
+    color: var(--cor-principal);
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid var(--cor-principal);
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; /* EXTRA BOLD */
+    color: var(--cor-principal);
+    font-size: 1.2em;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* BOLD */
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--cor-secundaria);
+}
+
+#message {
+    margin-top: 15px;
+    color: var(--cor-principal);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; /* EXTRA BOLD */
+}
+
+/* Estilos responsivos */
+@media (max-width: 480px) {
+    .container {
+        margin: 20px auto;
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    input[type="text"],
+    button {
+        padding: 12px;
+    }
+    .logo-container img {
+        margin-bottom: 0;
+    }
+ 
+    .wave {
+        top: -256vw;
+    }
+    .wave.-two {
+        top: -256vw;
+    }
+
+    .wave.-three {
+        top: -253vw;
+    }
+
+}
+
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.spinner img {
+    width: 150px;
+    height: 150px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

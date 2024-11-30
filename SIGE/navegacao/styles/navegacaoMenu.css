@@ -1,0 +1,202 @@
+/* Importando as fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Montserrat:wght@700;800&family=League+Spartan&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, rgba(71, 211, 221, 0), rgb(0, 153, 153)), url('/galeria/icones/fundocrianca.png');
+}
+
+header {
+    background-color: rgba(0, 102, 102, 0.7);
+    padding: 5px 0;
+    text-align: center;
+}
+
+
+.navbar {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 100%; 
+    padding-right: 20%;
+    max-width: 400px;
+}
+
+.nav-links {
+    background-color: rgba(0, 102, 102, 1);
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: rgb(0, 143, 209); 
+}
+
+
+.mobile-menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu-icon span {
+    background-color: #000000;
+    height: 3px;
+    width: 25px;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .navbar {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .nav-links {
+        position: fixed; 
+        right: 0;
+        top: 0;
+        height: 100vh;
+        margin-top: 100px;
+        width: 100vw; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100vw); 
+        transition: transform 0.5s ease-in;
+        z-index: 9999; 
+    }
+
+    .nav-links a {
+        color: #ffffff; 
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-icon {
+        display: flex;
+    }
+}
+
+
+
+/* Navbar Inferior (Menu Base de Navegação) */
+#navbarContainer {
+  display: none; 
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  z-index: 999;
+}
+
+#navbar {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 102, 102, 0.7);
+  position: absolute;
+  bottom: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#navbar.hidden {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+/* Menu Wrapper */
+#menuWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Elementos do Menu Inferior */
+.menuElement {
+  opacity: 0.6;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuElement:hover {
+  opacity: 1;
+}
+
+.menu1-fundo,
+.menu2-fundo,
+.menu3-fundo {
+  display: flex;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.menu1-fundo.clicked,
+.menu2-fundo.clicked,
+.menu3-fundo.clicked {
+  transform: translateY(-20px);
+  background-color: rgb(143, 143, 143);
+}
+
+/* Efeito nos Ícones ao Hover */
+.menuElement img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.menuElement:hover img {
+  transform: scale(1.3) translateY(-2px);
+}
+
+/* Responsividade para o Navbar Inferior */
+@media screen and (max-width: 1200px) {
+  .centralizarMenu {
+    max-width: 100%;
+  }
+
+  #navbarContainer {
+    display: block; 
+  }
+}
