@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciamento de Alunos - SIGE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cor-primaria: #006666;
+      --cor-secundaria: #009999;
+      --cor-hover: #7FFFD4;
+      --cor-alerta: #EB5200;
+      --cor-sucesso: #4CAF50;
+      --texto-claro: #FFFFFF;
+      --texto-escuro: #333333;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f5f5;
+      color: var(--texto-escuro);
+    }
+
+    header {
+      background-color: var(--cor-primaria);
+      color: var(--texto-claro);
+      padding: 1rem 2rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .filtros {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filtros input, .filtros select {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .filtros input {
+      width: 250px;
+    }
+
+    .acoes-superiores {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-primario {
+      background-color: var(--cor-primaria);
+      color: var(--texto-claro);
+    }
+
+    .btn-primario:hover {
+      background-color: var(--cor-hover);
+      color: var(--cor-primaria);
+    }
+
+    .btn-editar {
+      background-color: #0282CC;
+      color: white;
+    }
+
+    .btn-remover {
+      background-color: var(--cor-alerta);
+      color: white;
+    }
+
+    .btn-detalhes {
+      background-color: var(--cor-sucesso);
+      color: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: var(--cor-secundaria);
+      color: var(--texto-claro);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .acoes-cell {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      padding: 0.3rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .badge-ativo {
+      background-color: #e6f7ee;
+      color: #0d8a4a;
+    }
+
+    .badge-inativo {
+      background-color: #feeceb;
+      color: #d92525;
+    }
+  </style>
+</head>
+<body>
+  <header>Gerenciamento de Alunos</header>
+  <main>
+    <div class="filtros">
+      <input type="text" placeholder="Buscar por nome...">
+      <input type="text" placeholder="Buscar por CPF...">
+      <select id="filtro-turma">
+        <option value="">Todas as turmas</option>
+        <!-- Turmas serão preenchidas via backend -->
+      </select>
+      <select id="filtro-status">
+        <option value="">Todos os status</option>
+        <option value="ativo">Ativo</option>
+        <option value="inativo">Inativo</option>
+      </select>
+    </div>
+
+    <div class="acoes-superiores">
+      <div>
+        <button class="btn btn-primario" id="btn-adicionar">Adicionar Aluno</button>
+      </div>
+    </div>
+
+    <table id="tabela-alunos">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Data Nasc.</th>
+          <th>Turma</th>
+          <th>Situação</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dados serão preenchidos via backend -->
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
