@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Gerenciamento de Turmas - SIGE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+<style>
     :root {
       --cor-primaria: #006666;
       --cor-secundaria: #009999;
       --cor-hover: #7FFFD4;
       --cor-alerta: #EB5200;
-      --cor-sucesso: #4CAF50;
       --texto-claro: #FFFFFF;
       --texto-escuro: #333333;
     }
@@ -39,27 +32,28 @@
 
     .filtros {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       margin-bottom: 1.5rem;
-      flex-wrap: wrap;
     }
 
-    .filtros input, .filtros select {
+    .filtros input,
+    .filtros select {
       padding: 0.5rem;
       border: 1px solid #ddd;
       border-radius: 4px;
       font-family: 'Montserrat', sans-serif;
-    }
-
-    .filtros input {
-      width: 250px;
+      flex: 1;
+      min-width: 200px;
     }
 
     .acoes-superiores {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1.5rem;
+      gap: 1rem;
     }
 
     .btn {
@@ -92,18 +86,17 @@
       color: white;
     }
 
-    .btn-visualizar {
-      background-color: var(--cor-sucesso);
-      color: white;
+    .tabela-container {
+      overflow-x: auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      background-color: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      min-width: 800px;
     }
 
     th, td {
@@ -125,70 +118,47 @@
 
     .acoes-cell {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.5rem;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 0.3rem 0.6rem;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: bold;
-    }
 
-    .badge-manha {
-      background-color: #e6f3ff;
-      color: #0066cc;
-    }
-
-    .badge-tarde {
-      background-color: #fff8e6;
-      color: #cc9900;
-    }
-
-    .badge-noite {
-      background-color: #f0e6ff;
-      color: #6600cc;
-    }
   </style>
 </head>
 <body>
-  <header>Gerenciamento de Turmas</header>
+  <header>Gerenciamento de Professores</header>
   <main>
     <div class="filtros">
-      <input type="text" id="busca-turma" placeholder="Buscar por nome da turma...">
-      <select id="filtro-ano">
-        <option value="">Todos os anos</option>
-        <!-- Anos serão preenchidos via backend -->
+      <input type="text" placeholder="Buscar por nome...">
+      <input type="text" placeholder="Buscar por CPF...">
+      <select id="filtro-materia">
+        <option value="">Todas as matérias</option>
       </select>
       <select id="filtro-turno">
         <option value="">Todos os turnos</option>
         <option value="manha">Manhã</option>
         <option value="tarde">Tarde</option>
+        <option value="noite">Noite</option>
       </select>
     </div>
 
-    <div class="acoes-superiores">
-      <div>
-        <button class="btn btn-primario" id="btn-adicionar">Adicionar Turma</button>
-      </div>
-    </div>
 
-    <table id="tabela-turmas">
-      <thead>
-        <tr>
-          <th>Turma</th>
-          <th>Ano</th>
-          <th>Turno</th>
-          <th>Nº Alunos</th>
-          <th>Professor Responsável</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Dados serão preenchidos via backend -->
-      </tbody>
-    </table>
+    <div class="tabela-container">
+      <table id="tabela-professores">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Matéria</th>
+            <th>Turno</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dados serão preenchidos via backend -->
+        </tbody>
+      </table>
+    </div>
   </main>
 </body>
-</html>
+

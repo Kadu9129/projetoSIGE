@@ -1,0 +1,18 @@
+{
+  "professores": [
+    {
+      "id": 1,
+      "nome": "Carlos Oliveira",
+      "cpf": "111.222.333-44",
+      "materia": "Matemática",
+      "turno": "manha"
+    },
+    {
+      "id": 2,
+      "nome": "Fernanda Lima",
+      "cpf": "555.666.777-88",
+      "materia": "História",
+      "turno": "tarde"
+    }
+  ]
+}

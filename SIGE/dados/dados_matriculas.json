@@ -1,0 +1,11 @@
+{
+  "matriculas": [
+    {
+      "id": 1,
+      "tipo": "aluno",
+      "nome": "João Silva",
+      "cpf": "123.456.789-00",
+      "data": "2023-12-01"
+    }
+  ]
+}

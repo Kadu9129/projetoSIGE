@@ -1,0 +1,20 @@
+{
+  "turmas": [
+    {
+      "id": 1,
+      "nome": "6º Ano A",
+      "ano": 2024,
+      "turno": "manha",
+      "qtdAlunos": 28,
+      "professor": "Carlos Oliveira"
+    },
+    {
+      "id": 2,
+      "nome": "7º Ano B",
+      "ano": 2024,
+      "turno": "tarde",
+      "qtdAlunos": 30,
+      "professor": "Fernanda Lima"
+    }
+  ]
+}

@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Gerenciamento de Alunos - SIGE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<main>
   <style>
     :root {
       --cor-primaria: #006666;
@@ -16,10 +11,7 @@
     }
 
     body {
-      margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: #f5f5f5;
-      color: var(--texto-escuro);
     }
 
     header {
@@ -29,12 +21,7 @@
       font-family: 'Poppins', sans-serif;
       font-size: 1.5rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    main {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      margin-bottom: 2rem;
     }
 
     .filtros {
@@ -92,7 +79,7 @@
       color: white;
     }
 
-    .btn-detalhes {
+    .btn-visualizar {
       background-color: var(--cor-sucesso);
       color: white;
     }
@@ -129,61 +116,64 @@
     }
 
     .badge {
+      display: inline-block;
       padding: 0.3rem 0.6rem;
       border-radius: 12px;
       font-size: 0.8rem;
       font-weight: bold;
     }
 
-    .badge-ativo {
-      background-color: #e6f7ee;
-      color: #0d8a4a;
+    .badge-manha {
+      background-color: #e6f3ff;
+      color: #0066cc;
     }
 
-    .badge-inativo {
-      background-color: #feeceb;
-      color: #d92525;
+    .badge-tarde {
+      background-color: #fff8e6;
+      color: #cc9900;
     }
+
+    .badge-noite {
+      background-color: #f0e6ff;
+      color: #6600cc;
+    }
+
+ 
   </style>
-</head>
-<body>
-  <header>Gerenciamento de Alunos</header>
-  <main>
-    <div class="filtros">
-      <input type="text" placeholder="Buscar por nome...">
-      <input type="text" placeholder="Buscar por CPF...">
-      <select id="filtro-turma">
-        <option value="">Todas as turmas</option>
-        <!-- Turmas serão preenchidas via backend -->
-      </select>
-      <select id="filtro-status">
-        <option value="">Todos os status</option>
-        <option value="ativo">Ativo</option>
-        <option value="inativo">Inativo</option>
-      </select>
-    </div>
 
-    <div class="acoes-superiores">
-      <div>
-        <button class="btn btn-primario" id="btn-adicionar">Adicionar Aluno</button>
-      </div>
-    </div>
+  <header>Gerenciamento de Turmas</header>
 
-    <table id="tabela-alunos">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Data Nasc.</th>
-          <th>Turma</th>
-          <th>Situação</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Dados serão preenchidos via backend -->
-      </tbody>
-    </table>
-  </main>
-</body>
-</html>
+  <div class="filtros">
+    <input type="text" id="busca-turma" placeholder="Buscar por nome da turma...">
+    <select id="filtro-ano">
+      <option value="">Todos os anos</option>
+    </select>
+    <select id="filtro-turno">
+      <option value="">Todos os turnos</option>
+      <option value="manha">Manhã</option>
+      <option value="tarde">Tarde</option>
+    </select>
+  </div>
+
+  <div class="acoes-superiores">
+    <div>
+      <button class="btn btn-primario" id="btn-adicionar">Adicionar Turma</button>
+    </div>
+  </div>
+
+  <table id="tabela-turmas">
+    <thead>
+      <tr>
+        <th>Turma</th>
+        <th>Ano</th>
+        <th>Turno</th>
+        <th>Nº Alunos</th>
+        <th>Professor Responsável</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Dados serão preenchidos via backend -->
+    </tbody>
+  </table>
+</main>

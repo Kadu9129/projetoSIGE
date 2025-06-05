@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIGE - Painel Escolar</title>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Montserrat:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cor-primaria: #006666;
+      --cor-secundaria: #009999;
+      --cor-hover: #66cccc;
+      --texto-claro: #ffffff;
+      --fundo-pagina: #f9f9f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--fundo-pagina);
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: var(--cor-secundaria);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-area img {
+      width: 120px;
+      margin-bottom: 2rem;
+    }
+
+    .menu {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0 1rem;
+    }
+
+    .menu a {
+      padding: 0.75rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--texto-claro);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      border-radius: 6px;
+    }
+
+    .menu a:hover {
+      background-color: var(--cor-hover);
+      color: var(--cor-primaria);
+    }
+
+    .content_principal {
+      flex: 1;
+      background-color: #fff;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .content_principal.default {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content_principal.default h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--cor-primaria);
+      text-align: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px;
+      background-color: var(--cor-primaria);
+      transition: 0.3s;
+    }
+
+
+  </style>
+</head>
+<body>
+  <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo-area">
+        <img src="/SIGE/galeria/icones/Sige.png" alt="Logo SIGE">
+      </div>
+      <nav class="menu">
+        <a href="#" onclick="carregarPagina('sub_pasta/gerenciamento_alunos.html')">Alunos</a>
+        <a href="#" onclick="carregarPagina('sub_pasta/gerenciamento_professores.html')">Professores</a>
+        <a href="#" onclick="carregarPagina('sub_pasta/matricula.html')">Matrícular</a>
+        <a href="#" onclick="carregarPagina('sub_pasta/turmas.html')">Turmas</a>
+        <a href="#" onclick="carregarPagina('sub_pasta/relatorios.html')">Relatórios</a>
+        <a href="#" onclick="fecharMenu()">Sair</a>
+      </nav>
+    </aside>
+
+    <main class="content_principal default">
+      <h1>Bem-vindo ao Painel Escolar</h1>
+    </main>
+  </div>
+
+  <script>
+    function fecharMenu() {
+      document.querySelector('.sidebar').classList.remove('active');
+    }
+    
+    function carregarPagina(arquivo) {
+      fetch(arquivo)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+
+          const novoMain = doc.querySelector('main');
+          const destino = document.querySelector('.content_principal');
+          destino.innerHTML = novoMain ? novoMain.innerHTML : "<p>Conteúdo não encontrado.</p>";
+          destino.classList.remove('default');
+
+          // Limpa estilos e scripts dinâmicos anteriores
+          document.querySelectorAll('[data-dinamico]').forEach(el => el.remove());
+
+          // Estilos embutidos
+          doc.querySelectorAll('style').forEach(style => {
+            const s = document.createElement('style');
+            s.innerHTML = style.innerHTML;
+            s.setAttribute('data-dinamico', 'true');
+            document.head.appendChild(s);
+          });
+
+          // Estilos externos
+          doc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+            const l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = link.href;
+            l.setAttribute('data-dinamico', 'true');
+            document.head.appendChild(l);
+          });
+
+          // Scripts externos
+          doc.querySelectorAll('script[src]').forEach(script => {
+            const s = document.createElement('script');
+            s.src = script.src;
+            s.defer = true;
+            s.setAttribute('data-dinamico', 'true');
+            document.body.appendChild(s);
+          });
+
+          // Scripts inline
+          doc.querySelectorAll('script:not([src])').forEach(script => {
+            const s = document.createElement('script');
+            s.innerHTML = script.innerHTML;
+            s.setAttribute('data-dinamico', 'true');
+            document.body.appendChild(s);
+          });
+
+          fecharMenu();
+        })
+        .catch(err => {
+          console.error("Erro ao carregar a página:", err);
+          document.querySelector('.content_principal').innerHTML = "<p>Erro ao carregar conteúdo.</p>";
+        });
+    }
+  </script>
+</body>
+</html>

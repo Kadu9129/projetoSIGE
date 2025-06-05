@@ -1,0 +1,20 @@
+{
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "cpf": "123.456.789-00",
+      "nascimento": "2007-05-12",
+      "turma": "6º Ano A",
+      "status": "ativo"
+    },
+    {
+      "id": 2,
+      "nome": "Maria Souza",
+      "cpf": "987.654.321-00",
+      "nascimento": "2006-10-20",
+      "turma": "7º Ano B",
+      "status": "inativo"
+    }
+  ]
+}

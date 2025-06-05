@@ -1,93 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIGE - Sistema Integrado de Gestão Educacional</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGE - Sistema Integrado de Gestão Educacional</title>
 
-  <!-- Estilos -->
-  <link rel="stylesheet" href="../Navegacao/styles/rodape.css" />
-  <link rel="stylesheet" href="../Navegacao/styles/navegacaoMenu.css" />
-  <link rel="stylesheet" href="../Navegacao/styles/responsividade.css" />
-  <link rel="stylesheet" href="../Navegacao/styles/centralizarExibicao.css" />
+
+    <!-- Estilos de navegação -->
+    <link rel="stylesheet" href="../Navegacao/styles/rodape.css">
+    <link rel="stylesheet" href="../Navegacao/styles/navegacaoMenu.css">
+    <link rel="stylesheet" href="../Navegacao/styles/responsividade.css">
+    <link rel="stylesheet" href="../Navegacao/styles/centralizarExibicao.css">
 </head>
 <body>
 
-  <!-- Navegação Lateral -->
-  <nav id="navbarContainer">
-    <div id="menuWrapper">
-      <div class="menuElement menu1-fundo" id="pagina1" data-fundo="menu1-fundo">
-        <img src="../galeria/icones/Inicio.png" alt="Início" class="icone-personalizado" />
-      </div>
-      <div class="menuElement menu2-fundo" id="pagina2" data-fundo="menu2-fundo">
-        <img src="../galeria/icones/RedeSocial.png" alt="Rede Social" class="icone-personalizado" />
-      </div>
-      <div class="menuElement menu3-fundo" id="pagina3" data-fundo="menu3-fundo">
-        <img src="../galeria/icones/Perfil.png" alt="Perfil" class="icone-personalizado" />
-      </div>
+    <!-- Navbar -->
+    <div id="navbarContainer">
+        <div id="navbar">
+            <div id="menuWrapper">
+                <!-- Menu Items -->
+                <div class="menu1-fundo">
+                    <div id="pagina1" class="menuElement" data-fundo="menu1-fundo">
+                        <img src="../galeria/icones/Inicio.png" alt="Início" class="icone-personalizado">
+                    </div>
+                </div>
+                <div class="menu2-fundo">
+                    <div id="pagina2" class="menuElement" data-fundo="menu2-fundo">
+                        <img src="../galeria/icones/RedeSocial.png" alt="Rede Social" class="icone-personalizado">
+                    </div>
+                </div>
+                <div class="menu3-fundo">
+                    <div id="pagina3" class="menuElement" data-fundo="menu3-fundo">
+                        <img src="../galeria/icones/Perfil.png" alt="Perfil" class="icone-personalizado">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </nav>
 
-  <!-- Cabeçalho -->
-  <header>
-    <div class="navbar">
-      <div class="logo">
-        <img src="../galeria/icones/Logo.png" alt="SIGE" onclick="selecionarPagina('Inicio')" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="#" onclick="selecionarPagina('Inicio')">Início</a></li>
-        <li><a href="#" onclick="selecionarPagina('Sobre')">Sobre</a></li>
-        <li><a href="#" onclick="selecionarPagina('Programas')">Programas</a></li>
-        <li><a href="#" onclick="selecionarPagina('Contatos')">Contatos</a></li>
-        <li><a href="#" class="entrar" onclick="selecionarPagina('Entrar')">Entrar</a></li>
+
+    <!-- Cabeçalho com Logo e Menu -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../galeria/icones/Sige.png" alt="SIGE" onclick="selecionarPagina('Inicio');">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="selecionarPagina('Inicio');">Início</a></li>
+                <li><a href="#" onclick="selecionarPagina('Sobre');">Sobre</a></li>
+                <li><a href="#" onclick="selecionarPagina('Programas');">Programas</a></li>
+                <li><a href="#" onclick="selecionarPagina('Contatos');">Contatos</a></li>
+                <li><a href="#" class="entrar" onclick="selecionarPagina('Entrar');">Entrar</a></li>
+            </ul>
+            <div class="mobile-menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="conteudo">
+        <div id="centroExibicao" class="centroExibicao"></div>
+    </div>
+
+<!-- Rodapé da Página -->
+<footer class="footer">
+  <div class="footer-content">
+
+    <div class="footer-column">
+      <h4>Sobre a SIGE</h4>
+      <p>Fundada em 2023 em Saquarema, a SIGE oferece um sistema educacional integrado, seguro e eficiente.</p>
+      <a href="#" class="footer-link">Saiba mais</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Links úteis</h4>
+      <ul>
+        <li><a href="#" class="footer-link">Módulo Financeiro</a></li>
+        <li><a href="#" class="footer-link">Projetos</a></li>
+        <li><a href="#" class="footer-link">Manuais e Guias</a></li>
+        <li><a href="#" class="footer-link">Área do Cliente</a></li>
       </ul>
-      <div class="mobile-menu-icon">
-        <span></span><span></span><span></span>
-      </div>
     </div>
-  </header>
 
-  <!-- Conteúdo Principal -->
-  <main class="conteudo">
-    <div id="centroExibicao" class="centroExibicao"></div>
-  </main>
-
-  <!-- Rodapé -->
-  <footer class="footer">
-    <div class="footer-content">
-  
-      <div class="footer-column">
-        <h4>Sobre a SIGE</h4>
-        <p>Fundada em 2023 em Saquarema, a SIGE oferece um sistema educacional integrado, seguro e eficiente.</p>
-        <a href="#" class="footer-link">Saiba mais</a>
-      </div>
-  
-      <div class="footer-column">
-        <h4>Links úteis</h4>
-        <ul>
-          <li><a href="#" class="footer-link">Módulo Financeiro</a></li>
-          <li><a href="#" class="footer-link">Projetos</a></li>
-          <li><a href="#" class="footer-link">Manuais e Guias</a></li>
-          <li><a href="#" class="footer-link">Área do Cliente</a></li>
-        </ul>
-      </div>
-  
-      <div class="footer-column">
-        <h4>Contato</h4>
-        <p>📞 (21) 00000-0000</p>
-        <p>📧 suporte@sige.com.br</p>
-        <p>Rua da Tecnologia, 1234 - Saquarema/RJ</p>
-      </div>
-  
+    <div class="footer-column">
+      <h4>Contato</h4>
+      <p>📞 (21) 00000-0000</p>
+      <p>📧 suporte@sige.com.br</p>
+      <p>Rua da Tecnologia, 1234 - Saquarema/RJ</p>
     </div>
-  
-    <div class="footer-info text-center">
-      <p>© 2023 SIGE. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-  
 
-  <!-- Scripts -->
-  <script src="../Navegacao/script/navecacao.js"></script>
+  </div>
+
+  <div class="footer-info text-center">
+    <p>© 2023 SIGE. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <script src="../Navegacao/script/navecacao.js"></script>
 </body>
 </html>
