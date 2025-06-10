@@ -47,7 +47,11 @@ async function removerTurma(id) {
 
 // === ALUNOS ===
 async function buscarAlunos() {
-  return await carregarArquivo('dados_alunos.json');
+  const resposta = await fetch(BASE_URL + 'dados_alunos.json');
+  if (!resposta.ok) {
+    throw new Error('Erro ao carregar dados dos alunos');
+  }
+  return await resposta.json();
 }
 
 

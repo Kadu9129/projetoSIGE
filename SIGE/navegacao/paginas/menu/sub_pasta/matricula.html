@@ -1,313 +1,275 @@
 <style>
-    :root {
-      --cor-primaria: #006666;
-      --cor-secundaria: #009999;
-      --cor-hover: #7FFFD4;
-      --cor-alerta: #EB5200;
-      --cor-sucesso: #4CAF50;
-      --texto-claro: #FFFFFF;
-      --texto-escuro: #333333;
-    }
+  :root {
+    --cor-primaria: #006666;
+    --cor-secundaria: #009999;
+    --cor-hover: #7FFFD4;
+    --cor-alerta: #EB5200;
+    --cor-sucesso: #4CAF50;
+    --texto-claro: #FFFFFF;
+    --texto-escuro: #333333;
+  }
 
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f5f5f5;
-      color: var(--texto-escuro);
-    }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: var(--texto-escuro);
+  }
 
-    header {
-      background-color: var(--cor-primaria);
-      color: var(--texto-claro);
-      padding: 1rem 2rem;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+  header {
+    background-color: var(--cor-primaria);
+    color: var(--texto-claro);
+    padding: 1rem 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
 
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+  main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
-    .passo-atual {
-      font-family: 'Poppins', sans-serif;
-      color: var(--cor-primaria);
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-    }
+  .passo-atual {
+    font-family: 'Poppins', sans-serif;
+    color: var(--cor-primaria);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
 
-    .card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-bottom: 1.5rem;
-    }
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+  }
 
-    .opcoes-tipo {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
+  .opcoes-tipo {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 
-    .opcao-tipo {
-      flex: 1;
-      text-align: center;
-      padding: 1.5rem;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
+  .opcao-tipo {
+    flex: 1;
+    text-align: center;
+    padding: 1.5rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
 
-    .opcao-tipo:hover {
-      border-color: var(--cor-primaria);
-    }
+  .opcao-tipo:hover {
+    border-color: var(--cor-primaria);
+  }
 
-    .opcao-tipo.ativo {
-      border-color: var(--cor-primaria);
-      background-color: rgba(0, 102, 102, 0.1);
-    }
+  .opcao-tipo.ativo {
+    border-color: var(--cor-primaria);
+    background-color: rgba(0, 102, 102, 0.1);
+  }
 
-    .opcao-tipo h3 {
-      font-family: 'Poppins', sans-serif;
-      color: var(--cor-primaria);
-      margin-top: 0;
-    }
+  .opcao-tipo h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--cor-primaria);
+    margin-top: 0;
+  }
 
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
 
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
 
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-family: 'Montserrat', sans-serif;
-    }
+  .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-    .form-row {
-      display: flex;
-      gap: 1rem;
-    }
+  .form-row {
+    display: flex;
+    gap: 1rem;
+  }
 
-    .form-row .form-group {
-      flex: 1;
-    }
+  .form-row .form-group {
+    flex: 1;
+  }
 
-    .acoes {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
-    }
+  .acoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
 
-    .btn {
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
 
-    .btn-primario {
-      background-color: var(--cor-primaria);
-      color: var(--texto-claro);
-    }
+  .btn-primario {
+    background-color: var(--cor-primaria);
+    color: var(--texto-claro);
+  }
 
-    .btn-primario:hover {
-      background-color: var(--cor-hover);
-      color: var(--cor-primaria);
-    }
+  .btn-primario:hover {
+    background-color: var(--cor-hover);
+    color: var(--cor-primaria);
+  }
 
-    .btn-secundario {
-      background-color: #ddd;
-      color: var(--texto-escuro);
-    }
+  .btn-secundario {
+    background-color: #ddd;
+    color: var(--texto-escuro);
+  }
 
-    .btn-secundario:hover {
-      background-color: #ccc;
-    }
+  .btn-secundario:hover {
+    background-color: #ccc;
+  }
 
-    .hidden {
-      display: none;
-    }
+  .hidden {
+    display: none;
+  }
+</style>
 
+<header>Realizar Matrícula</header>
+<main>
+  <div class="passo-atual">Passo 1: Escolha o tipo de matrícula</div>
 
-  </style>
-</head>
-<body>
-  <header>Realizar Matrícula</header>
-  <main>
-    <div class="passo-atual">Passo 1: Escolha o tipo de matrícula</div>
-    
-    <div class="card" id="passo1">
-      <div class="opcoes-tipo">
-        <div class="opcao-tipo" onclick="selecionarTipo('aluno')">
-          <h3>Aluno</h3>
-          <p>Matricular um novo aluno na instituição</p>
-        </div>
-        <div class="opcao-tipo" onclick="selecionarTipo('professor')">
-          <h3>Professor</h3>
-          <p>Cadastrar um novo professor</p>
-        </div>
+  <div class="card" id="passo1">
+    <div class="opcoes-tipo">
+      <div class="opcao-tipo" onclick="selecionarTipo('aluno')">
+        <h3>Aluno</h3>
+        <p>Matricular um novo aluno na instituição</p>
+      </div>
+      <div class="opcao-tipo" onclick="selecionarTipo('professor')">
+        <h3>Professor</h3>
+        <p>Cadastrar um novo professor</p>
       </div>
     </div>
+  </div>
 
-    <div class="card hidden" id="passo2">
-      <div class="form-group">
-        <label for="nome">Nome Completo</label>
-        <input type="text" id="nome" required>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="cpf">CPF</label>
-          <input type="text" id="cpf" required>
-        </div>
-        <div class="form-group">
-          <label for="nascimento">Data de Nascimento</label>
-          <input type="date" id="nascimento" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="endereco">Endereço Completo</label>
-        <input type="text" id="endereco" required>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="telefone">Telefone</label>
-          <input type="tel" id="telefone" required>
-        </div>
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" required>
-        </div>
-      </div>
+  <div class="card hidden" id="passo2">
+    <div class="form-group">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" required>
     </div>
 
-    <div class="card hidden" id="passo3-aluno">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="turma">Turma</label>
-          <select id="turma" required>
-            <option value="">Selecione uma turma</option>
-            <option value="6A">6º Ano A</option>
-            <option value="7B">7º Ano B</option>
-            <!-- mais turmas -->
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="turno-aluno">Turno</label>
-          <select id="turno-aluno" required>
-            <option value="">Selecione um turno</option>
-            <option value="manha">Manhã</option>
-            <option value="tarde">Tarde</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="card hidden" id="passo3-professor">
+    <div class="form-row">
       <div class="form-group">
-        <label for="materia">Matérias que leciona</label>
-        <select id="materia" multiple required>
-          <option value="matematica">Matemática</option>
-          <option value="portugues">Português</option>
-          <option value="ciencias">Ciências</option>
-          <option value="historia">História</option>
-          <option value="geografia">Geografia</option>
-        </select>
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" required>
       </div>
       <div class="form-group">
-        <label for="turno-professor">Turno de trabalho</label>
-        <select id="turno-professor" required>
-          <option value="">Selecione um turno</option>
-          <option value="manha">Manhã</option>
-          <option value="tarde">Tarde</option>
-          <option value="noite">Noite</option>
-        </select>
+        <label for="nascimento">Data de Nascimento</label>
+        <input type="date" id="nascimento" required>
       </div>
     </div>
 
-    <div class="acoes">
-      <button class="btn btn-secundario hidden" id="btn-voltar" onclick="voltarPasso()">Voltar</button>
-      <button class="btn btn-primario" id="btn-avancar" onclick="avancarPasso()">Avançar</button>
+    <div class="form-group">
+      <label for="endereco">Endereço Completo</label>
+      <input type="text" id="endereco" required>
     </div>
-  </main>
 
-  <script>
-    let passoAtual = 1;
-    let tipoMatricula = '';
+    <div class="form-row">
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" required>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required>
+      </div>
+    </div>
+  </div>
 
-    function selecionarTipo(tipo) {
-      tipoMatricula = tipo;
-      document.querySelectorAll('.opcao-tipo').forEach(el => {
-        el.classList.remove('ativo');
-      });
-      event.currentTarget.classList.add('ativo');
+  <div class="acoes">
+    <button class="btn btn-secundario hidden" id="btn-voltar" onclick="voltarPasso()">Voltar</button>
+    <button class="btn btn-primario" id="btn-avancar">Matrícular</button>
+  </div>
+</main>
+
+<script>
+  let passoAtual = 1;
+  let tipoMatricula = '';
+
+  function selecionarTipo(tipo) {
+    tipoMatricula = tipo;
+    document.querySelectorAll('.opcao-tipo').forEach(el => el.classList.remove('ativo'));
+    event.currentTarget.classList.add('ativo');
+  }
+
+  function avancarPasso() {
+    if (passoAtual === 1 && !tipoMatricula) {
+      alert('Selecione o tipo de matrícula primeiro');
+      return;
     }
 
-    function avancarPasso() {
-      if (passoAtual === 1 && !tipoMatricula) {
-        alert('Selecione o tipo de matrícula primeiro');
-        return;
+    const dados = {
+      nome: document.getElementById('nome').value,
+      cpf: document.getElementById('cpf').value,
+      nascimento: document.getElementById('nascimento').value,
+      endereco: document.getElementById('endereco').value,
+      telefone: document.getElementById('telefone').value,
+      email: document.getElementById('email').value,
+    };
+
+    fetch('sub_pasta/php/salvar_matricula.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tipo: tipoMatricula, dados })
+    })
+    .then(resp => resp.json())
+    .then(res => {
+      alert(res.mensagem || 'Matrícula realizada!');
+      if (res.sucesso) {
+        location.reload();
       }
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Erro ao salvar matrícula.');
+    });
+  }
 
-      if (passoAtual === 3) {
-        // Aqui seria o envio do formulário
-        alert('Matrícula realizada com sucesso!');
-        return;
-      }
+  function voltarPasso() {
+    passoAtual = 1;
+    atualizarPassos();
+  }
 
-      passoAtual++;
+  function atualizarPassos() {
+    document.getElementById('passo1').classList.add('hidden');
+    document.getElementById('passo2').classList.add('hidden');
+    document.getElementById('btn-voltar').classList.add('hidden');
+
+    if (passoAtual === 1) {
+      document.getElementById('passo1').classList.remove('hidden');
+      document.querySelector('.passo-atual').textContent = 'Passo 1: Escolha o tipo de matrícula';
+    } else if (passoAtual === 2) {
+      document.getElementById('passo2').classList.remove('hidden');
+      document.getElementById('btn-voltar').classList.remove('hidden');
+      document.querySelector('.passo-atual').textContent = 'Passo 2: Informações pessoais';
+    }
+  }
+
+  document.getElementById('btn-avancar').addEventListener('click', () => {
+    if (passoAtual === 1) {
+      passoAtual = 2;
       atualizarPassos();
+    } else {
+      avancarPasso(); // já salva no passo 2
     }
-
-    function voltarPasso() {
-      passoAtual--;
-      atualizarPassos();
-    }
-
-    function atualizarPassos() {
-      document.getElementById('passo1').classList.add('hidden');
-      document.getElementById('passo2').classList.add('hidden');
-      document.getElementById('passo3-aluno').classList.add('hidden');
-      document.getElementById('passo3-professor').classList.add('hidden');
-      document.getElementById('btn-voltar').classList.add('hidden');
-
-      if (passoAtual === 1) {
-        document.getElementById('passo1').classList.remove('hidden');
-        document.getElementById('btn-voltar').classList.add('hidden');
-        document.querySelector('.passo-atual').textContent = 'Passo 1: Escolha o tipo de matrícula';
-        document.getElementById('btn-avancar').textContent = 'Avançar';
-      } else if (passoAtual === 2) {
-        document.getElementById('passo2').classList.remove('hidden');
-        document.getElementById('btn-voltar').classList.remove('hidden');
-        document.querySelector('.passo-atual').textContent = 'Passo 2: Informações pessoais';
-        document.getElementById('btn-avancar').textContent = 'Avançar';
-      } else if (passoAtual === 3) {
-        if (tipoMatricula === 'aluno') {
-          document.getElementById('passo3-aluno').classList.remove('hidden');
-          document.querySelector('.passo-atual').textContent = 'Passo 3: Dados escolares do aluno';
-        } else {
-          document.getElementById('passo3-professor').classList.remove('hidden');
-          document.querySelector('.passo-atual').textContent = 'Passo 3: Dados profissionais do professor';
-        }
-        document.getElementById('btn-avancar').textContent = 'Salvar Matrícula';
-      }
-    }
-  </script>
-</body>
+  });
+</script>

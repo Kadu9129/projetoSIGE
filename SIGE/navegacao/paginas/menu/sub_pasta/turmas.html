@@ -12,6 +12,8 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
     }
 
     header {
@@ -27,7 +29,7 @@
     .filtros {
       display: flex;
       gap: 1rem;
-      margin-bottom: 1.5rem;
+      margin: 0 2rem 1.5rem;
       flex-wrap: wrap;
     }
 
@@ -46,7 +48,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5rem;
+      margin: 0 2rem 1.5rem;
     }
 
     .btn {
@@ -69,23 +71,14 @@
       color: var(--cor-primaria);
     }
 
-    .btn-editar {
-      background-color: #0282CC;
-      color: white;
-    }
-
-    .btn-remover {
-      background-color: var(--cor-alerta);
-      color: white;
-    }
-
-    .btn-visualizar {
-      background-color: var(--cor-sucesso);
-      color: white;
+    .btn-secundario {
+      background-color: #ccc;
+      color: #333;
     }
 
     table {
-      width: 100%;
+      width: calc(100% - 4rem);
+      margin: 0 2rem;
       border-collapse: collapse;
       background-color: white;
       border-radius: 8px;
@@ -103,42 +96,56 @@
       background-color: var(--cor-secundaria);
       color: var(--texto-claro);
       font-family: 'Poppins', sans-serif;
-      font-weight: 700;
     }
 
     tr:hover {
       background-color: #f9f9f9;
     }
 
-    .acoes-cell {
-      display: flex;
-      gap: 0.5rem;
+    .card {
+      margin: 2rem;
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
-    .badge {
-      display: inline-block;
-      padding: 0.3rem 0.6rem;
-      border-radius: 12px;
-      font-size: 0.8rem;
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
       font-weight: bold;
+      display: block;
+      margin-bottom: 0.4rem;
     }
 
-    .badge-manha {
-      background-color: #e6f3ff;
-      color: #0066cc;
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
 
-    .badge-tarde {
-      background-color: #fff8e6;
-      color: #cc9900;
+    .form-row {
+      display: flex;
+      gap: 1rem;
     }
 
-    .badge-noite {
-      background-color: #f0e6ff;
-      color: #6600cc;
+    .form-row .form-group {
+      flex: 1;
     }
 
- 
+    .acoes {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .hidden {
+      display: none;
+    }
   </style>
 
   <header>Gerenciamento de Turmas</header>
@@ -156,12 +163,42 @@
   </div>
 
   <div class="acoes-superiores">
-    <div>
-      <button class="btn btn-primario" id="btn-adicionar">Adicionar Turma</button>
+    <button class="btn btn-primario" id="btn-adicionar">Adicionar Turma</button>
+  </div>
+
+  <div id="formulario-turma" class="card hidden">
+    <div class="form-group">
+      <label for="nome-turma">Nome da Turma</label>
+      <input type="text" id="nome-turma" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ano-turma">Ano</label>
+        <input type="number" id="ano-turma" required>
+      </div>
+      <div class="form-group">
+        <label for="turno-turma">Turno</label>
+        <select id="turno-turma" required>
+          <option value="">Selecione</option>
+          <option value="manha">Manhã</option>
+          <option value="tarde">Tarde</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="professor-turma">Professor Responsável</label>
+      <input type="text" id="professor-turma" required>
+    </div>
+
+    <div class="acoes">
+      <button class="btn btn-secundario" onclick="fecharFormulario()">Cancelar</button>
+      <button class="btn btn-primario" onclick="salvarTurma()">Salvar</button>
     </div>
   </div>
 
-  <table id="tabela-turmas">
+    <table id="tabela-turmas">
     <thead>
       <tr>
         <th>Turma</th>
@@ -173,7 +210,52 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Dados serão preenchidos via backend -->
+      <!-- Dados preenchidos futuramente -->
     </tbody>
   </table>
+
+  <script>
+    function abrirFormulario() {
+      document.getElementById('formulario-turma').classList.remove('hidden');
+    }
+
+    function fecharFormulario() {
+      document.getElementById('formulario-turma').classList.add('hidden');
+    }
+
+    document.getElementById('btn-adicionar').addEventListener('click', abrirFormulario);
+
+    function salvarTurma() {
+      const turma = {
+        nome: document.getElementById('nome-turma').value,
+        ano: document.getElementById('ano-turma').value,
+        turno: document.getElementById('turno-turma').value,
+        professor: document.getElementById('professor-turma').value,
+        numero_alunos: 0
+      };
+
+      if (!turma.nome || !turma.ano || !turma.turno || !turma.professor) {
+        alert('Preencha todos os campos.');
+        return;
+      }
+
+      fetch('salvar_turma.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(turma)
+      })
+      .then(resp => resp.json())
+      .then(res => {
+        alert(res.mensagem || 'Turma salva!');
+        if (res.sucesso) {
+          fecharFormulario();
+          location.reload(); // Atualiza lista após salvar
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Erro ao salvar turma.');
+      });
+    }
+  </script>
 </main>
